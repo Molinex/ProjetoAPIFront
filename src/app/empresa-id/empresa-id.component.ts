@@ -13,7 +13,7 @@ export class EmpresaIdComponent implements OnInit {
   constructor(private empresaService: EmpresaService) { }
 
   ngOnInit(): void {
-    this.listar();
+    this.listar(); 
   }
 
   listar() {
