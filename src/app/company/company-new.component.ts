@@ -28,13 +28,13 @@ export class CompanyNewComponent implements OnInit {
     const company = new Company(this.name, this.cnpj); 
     this.companyService.save(company).subscribe(
       data => {
-        this.toaster.success('Empresa Criada com Sucesso!!', 'OK', {
+        this.toaster.error('Empresa Não foi Criada', 'Fail', {
           timeOut: 3000,
         });
         this.router.navigate(['/']);
       },
       err => {
-        this.toaster.error('Empresa Não foi Criada', 'Fail', {
+        this.toaster.success('Empresa Criada com Sucesso!!', 'OK', {
           timeOut: 3000,
         });
         this.router.navigate(['/']);
