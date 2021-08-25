@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmpresaService {
 
-  empresaURL = 'http://localhost:8081/company/consult?id=1';
+  empresaURL = 'http://localhost:8081/company/consultall';
 
   constructor(private http: HttpClient) { }
 
