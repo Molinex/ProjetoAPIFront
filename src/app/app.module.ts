@@ -1,21 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { EmpresaIdComponent } from './empresa-id/empresa-id.component';
-import { EmpresaService } from './empresa.service';
+import { AppRoutingModule } from './app-routing.module';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+import { CompanyListComponent } from './company/company-list.component';
+import { CompanyDetailComponent } from './company/company-detail.component';
+import { CompanyNewComponent } from './company/company-new.component';
+import { CompanyEditComponent } from './company/company-edit.component';
+
+// externo
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmpresaIdComponent
+    CompanyListComponent,
+    CompanyDetailComponent,
+    CompanyNewComponent,
+    CompanyEditComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    AppRoutingModule, 
+    HttpClientModule, 
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    FormsModule
   ],
-  providers: [EmpresaService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,17 @@
+<div class="row mt-5" *ngIf="company">
+    <div class="col-md-4 mx-auto">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header text-center">
+              Detalhes
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>ID:</b> {{company.id}}</li>
+              <li class="list-group-item"><b>Nome:</b> {{company.name}}</li>
+              <li class="list-group-item"><b>CNPJ:</b> {{company.cnpj}}</li>
+            </ul>
+            <div class="card-footer">
+                <button class="btn btn-outline-primary btn-block" (click)="retorno()"><i class="far fa-caret-square-left"></i> Retornar</button>
+            </div>
+          </div>
+    </div>
+</div>
