@@ -24,12 +24,13 @@ export class CompanyService {
     return this.httpClient.post<any>(this.companyURL + 'register', company)
   }
 
-  public update(company: Company): Observable<any> {
-    return this.httpClient.put<any>(this.companyURL + 'update', company)
+  public update(id:number, company: Company): Observable<any> {
+    return this.httpClient.put<any>(this.companyURL + `update?id=${id}`, company)
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.companyURL + `remove/${id}`)
+    console.log(this.companyURL + `remove?id=${id}`)
+    return this.httpClient.delete<any>(this.companyURL + `remove?id=${id}`)
   }
 
 }

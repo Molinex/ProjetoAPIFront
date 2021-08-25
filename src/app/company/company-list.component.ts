@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Company } from '../model/company';
 import { CompanyService } from '../service/company.service';
 
@@ -10,7 +11,10 @@ import { CompanyService } from '../service/company.service';
 export class CompanyListComponent implements OnInit {
 
   companies: Company[] = [];
-  constructor(private companyService: CompanyService) { }
+  constructor(
+    private companyService: CompanyService,
+    private toaster: ToastrService
+  ) { }
 
   ngOnInit(): void {
     this.companyList();
@@ -27,8 +31,21 @@ export class CompanyListComponent implements OnInit {
     );
   }
 
-  apagar(nome: string) {
-    alert('Apagar empresa ' + nome + '?')
+  apagar(id: number) {
+    this.companyService.delete(id).subscribe(
+      data => {
+        this.toaster.error('Empresa Não foi Apagada', 'Fail', {
+          timeOut: 3000,
+        });
+        this.companyList();
+      },
+      err => {
+        this.toaster.success('Empresa Deletada com Sucesso!!', 'OK', {
+          timeOut: 3000,
+        });
+        this.companyList();
+      }
+    );
   }
 
 }

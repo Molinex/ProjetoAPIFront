@@ -11,7 +11,6 @@ const routes: Routes = [
   { path: 'detail/:id', component: CompanyDetailComponent },
   { path: 'new', component: CompanyNewComponent },
   { path: 'edit/:id', component: CompanyEditComponent},
-//  { path: 'delete/:id', component: CompanyEditComponent},
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
